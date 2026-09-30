@@ -30,4 +30,22 @@ console.log(copiedPerson)
 const to_array = (...args) => {
     return args ;
 }
-console.log(to_array(1 , 2 , 3 , 4))
+
+
+//----------
+
+const fetchdata = callback => {
+    setTimeout(() => {
+        callback("Done");
+    } , 1500);
+};
+
+setTimeout(() => {
+    console.log("Timer is Done");
+    fetchdata(text => {
+        console.log(text);
+    });
+} , 2000);
+
+console.log("HELLO")
+console.log("HI")
