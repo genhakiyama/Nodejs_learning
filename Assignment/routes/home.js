@@ -1,0 +1,8 @@
+module.exports = (req , res) => {
+    res.setHeader('Content-Type' , 'text/html');
+        res.write('<html>');
+            res.write('<head><tittle>Assignment</tittle></head>');
+            res.write('<body> <form action = "/create-users" method = "POST"> <input type = "text" name = "username"> <button type = "submit"> Send </button></form> </body>');
+        res.write('</html>');
+    return res.end()
+};
