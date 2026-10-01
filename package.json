@@ -15,7 +15,10 @@
   "type": "commonjs",
   "main": "Testing.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1" , 
-    "start-server" : "node Testing.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-server": "node Testing.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
   }
 }
