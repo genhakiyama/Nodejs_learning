@@ -1,6 +1,6 @@
 const http = require('http')
 const members = [];
-const server = http.createServer((req , res) => {
+const server = http.createServer((req , res) => { // each time reset request, if members inside the function -> it will be reset
     const url = req.url;
 
     if (url === '/') {
