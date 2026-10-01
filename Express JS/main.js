@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const bodyParser = require('body-parser');
 const app = express();
 
@@ -9,7 +10,7 @@ app.use('/add-product' , (req , res , next) => {
 });
 
 app.use('/product' , (req , res , next) => {
-    console.log(req.body);
+    fs.writeFileSync('message.txt' , req.body.tittle);
     res.redirect('/');
 });
 
