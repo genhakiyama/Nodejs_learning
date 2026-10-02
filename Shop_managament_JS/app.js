@@ -1,15 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const rootDir = require('./helpers/path');
-const app = express();
-const adminRoutes = require('./Routes/admin');
-const shopRoutes = require('./Routes/shop');
 const path = require('path');
+
+const app = express();
+const adminData = require('./Routes/admin');
+const shopRoutes = require('./Routes/shop');
+
+app.set('view engine' , 'pug');
+app.set('views' , 'Views');
 
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(express.static(path.join(rootDir , 'public')));
 
-app.use(adminRoutes);
+app.use(adminData.routes);
 app.use(shopRoutes);
 
 app.use('/' , (req , res , next)=>{

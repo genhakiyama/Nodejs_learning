@@ -1,0 +1,10 @@
+extends layouts/header.pug 
+
+block styles 
+    link(rel = "stylesheet" , href = "/css/main.css")
+
+block content 
+    main
+        form(action = "/product" , method = "POST")
+            input(type = "text" , name = "tittle")
+            button(type = "submit") ADD PRODUCT
