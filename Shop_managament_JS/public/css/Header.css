@@ -1,0 +1,85 @@
+/* ===== Header & navigation ===== */
+header {
+  background: linear-gradient(90deg, #2c3e50, #34495e);
+  padding: 0 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.5s ease-out;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+nav a {
+  position: relative;
+  display: block;
+  padding: 1rem 0.5rem;
+  color: #ecf0f1;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+/* Gạch chân chạy từ trái sang phải khi hover */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: #3498db;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+nav a:hover::after,
+nav a:focus::after {
+  transform: scaleX(1);
+}
+
+/* Trang hiện tại (class "active" từ file Pug) */
+nav a.active {
+  color: #fff;
+}
+
+nav a.active::after {
+  transform: scaleX(1);
+}
+
+/* ===== Keyframes ===== */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Người dùng tắt hiệu ứng trong hệ điều hành thì không chạy animation */
+@media (prefers-reduced-motion: reduce) {
+  header,
+  nav a,
+  nav a::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ===== Màn hình nhỏ ===== */
+@media (max-width: 600px) {
+  header {
+    padding: 0 1rem;
+  }
+}
