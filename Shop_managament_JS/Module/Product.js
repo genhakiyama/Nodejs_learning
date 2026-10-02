@@ -4,28 +4,28 @@ const fs = require('fs');
 
 const p = path.join(rootDir , 'data' , 'products.json');
 
+const getProductsFromtTheFile = cb => {
+    fs.readFile(p , (err , fileContent) => {
+        if (err) return cb([]);
+        return cb(JSON.parse(fileContent));
+    });
+};
+
 module.exports = class Product {
     constructor(t) {
         this.title = t;
     }
 
     save() {
-        fs.readFile(p , (err , fileContent) => {
-            let products = [];
-            if (!err) {
-                products = JSON.parse(fileContent);
-            }
+        getProductsFromtTheFile(products => {
             products.push(this);
-            fs.writeFile(p , JSON.stringify(products) , (err) =>{
+            fs.writeFile(p , JSON.stringify(products) , (err) => {
                 console.log(err);
             });
         });
     }
 
     static fetchAll(cb){
-        fs.readFile(p , (err , fileContent)=>{
-            if (err) return cb([]);
-            return cb(JSON.parse(fileContent));
-        });
+        getProductsFromtTheFile(cb);
     }
 };
