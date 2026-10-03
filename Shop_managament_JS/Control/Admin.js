@@ -7,6 +7,7 @@ exports.getAddProduct  = (req , res , next) => {
 exports.postProduct = (req , res , next) => {
     const product = new Products({
         title : req.body.title ,
+        image : req.body.image, 
         price : req.body.price , 
         description : req.body.description
     });
@@ -14,8 +15,12 @@ exports.postProduct = (req , res , next) => {
     res.redirect('/');
 };
 
-exports.getShopProduct = (req , res , next) => {
-    Products.fetchAll(list_products => {
-        res.render('shop' , {prods : list_products , pageTittle : 'Shop' , path : '/' });
+exports.AdjustProductDetail = (req , res , next) => { 
+    Products.fetchAll(products =>{ 
+        res.render( 'ShopKeeper' , {prods : products , pageTittle : 'Product' , path : '/ShopKeeper'});
     });
+};
+
+exports.EditDetail = (req , res , next) => {
+
 };

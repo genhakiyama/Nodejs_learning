@@ -10,14 +10,14 @@ const shopRoutes = require('./Routes/shop');
 app.set('view engine' , 'pug');
 app.set('views' , 'Views');
 
-app.use(bodyParser.urlencoded({extended : false}));
+app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.static(path.join(rootDir , 'public')));
 
 app.use(adminRoutes);
 app.use(shopRoutes);
 
 app.use('/' , (req , res , next)=>{
-    res.status(404).sendFile(path.join(rootDir, 'views' , '404.html'));
+    res.status(404).render(path.join(rootDir, 'Views' , '404.pug'));
 });
 
 app.listen(3000);

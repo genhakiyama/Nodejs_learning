@@ -9,8 +9,12 @@ block content
             if (prods.length > 0)
                 each product in prods
                     article.product
+                        img(src = product.image)
                         h1 #{product.title}
                         p #{product.price}
                         p #{product.description}
+                        block edit
             else
                 h1 No products
+
+            
