@@ -1,5 +1,16 @@
-extends shop.pug 
+extends layouts/header.pug 
 
-block edit 
-    button(type = "submit") EDIT
-    button(type = "delete") DELETE
+block styles  
+    link(rel="stylesheet", href="/css/shop.css")
+
+block content 
+    .Shop_response 
+        if (prods.length > 0)
+            each product in prods
+                article.product
+                    img(src = product.image)
+                    h1 #{product.title}
+                    p #{product.price}
+                    p #{product.description}
+
+                    a(href = `/product/${product.id}` , class = "btn") Detail 

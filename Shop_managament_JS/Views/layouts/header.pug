@@ -12,9 +12,12 @@ html(lang="en")
                 ul
                     li
                         a(href="/", class=(path === '/' ? 'active' : ''))  Shop
-                    li
-                        a(href="/add-product", class=(path === '/add-product' ? 'active' : '')) Add Product
+
                     li 
                         a(href="/ShopKeeper" , class=(path === "/ShopKeeper" ? 'active' : ''))  Product
+
+                    li
+                        a(href="/add-product", class=(path === '/add-product' ? 'active' : '')) Add Product
+                    
 
         block content

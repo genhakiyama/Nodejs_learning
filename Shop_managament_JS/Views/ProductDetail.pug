@@ -1,0 +1,25 @@
+extends layouts/header.pug 
+
+block styles 
+    link(rel = "stylesheet" , href = "/css/Product-detail.css")
+
+block content 
+    main.product-detail 
+        .product-info 
+            
+            .product-image
+                img(src = product.image) 
+            
+            .product-content 
+                h1.product-title  #{product.title}
+
+                .product-price 
+                    span.price #{product.price}
+
+                .product-actions 
+                    button.btn.btn-cart Add to Cart 
+                    button.btn.btn-buy Buy now 
+
+        section.product-detail-description 
+            h2 product Description 
+            p  #{product.description}

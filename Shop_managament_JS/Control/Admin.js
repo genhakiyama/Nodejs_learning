@@ -21,6 +21,9 @@ exports.AdjustProductDetail = (req , res , next) => {
     });
 };
 
-exports.EditDetail = (req , res , next) => {
-
+exports.getProduct = (req , res , next) => {
+    const ID = req.params.productID;
+    Products.FindbyID(ID , prod => {
+        res.render('ProductDetail' , {product : prod , pageTittle : 'Product' , path : '/ProductDetail'});
+    });
 };
