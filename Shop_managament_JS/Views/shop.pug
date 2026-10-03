@@ -1,20 +1,20 @@
-extends layouts/header.pug
+extends layouts/header.pug 
 
-block styles
+block styles  
     link(rel="stylesheet", href="/css/shop.css")
 
-block content
-    main
-        .Shop_response
-            if (prods.length > 0)
-                each product in prods
-                    article.product
-                        img(src = product.image)
-                        h1 #{product.title}
-                        p #{product.price}
-                        p #{product.description}
-                        block edit
-            else
-                h1 No products
+block content 
+    main.product-detail.Shop_response 
+        if (prods.length > 0)
+            each product in prods
+                article.product
+                    img(src = product.image)
+                    h1 #{product.title}
+                    p #{product.price}
+                    p #{product.description}
 
-            
+                    a(href = `/product/${product.id}` , class = "btn") Detail 
+        
+                    .product-actions 
+                        button.btn.btn-cart Add to Cart 
+                        button.btn.btn-buy Buy now 

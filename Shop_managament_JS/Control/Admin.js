@@ -27,3 +27,12 @@ exports.getProduct = (req , res , next) => {
         res.render('ProductDetail' , {product : prod , pageTittle : 'Product' , path : '/ProductDetail'});
     });
 };
+
+exports.deleteProduct = (req , res , next) => {
+    const ID = req.params.productID;
+    Products.fetchAll(products => {
+        const product = products.find(p => {
+            p.id == ID;
+        });
+    });
+};

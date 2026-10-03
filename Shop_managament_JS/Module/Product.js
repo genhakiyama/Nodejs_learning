@@ -39,4 +39,11 @@ module.exports = class Product {
             cb(product);
         });
     }
+
+    static DeletebyID(id , cb) {
+        getProductsFromtTheFile(products => {
+            const product = products.find(p => p.id == id) ;
+            cb(product);
+        });
+    }
 };
